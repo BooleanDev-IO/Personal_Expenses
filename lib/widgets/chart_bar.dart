@@ -5,10 +5,11 @@ class ChartBar extends StatelessWidget {
   final double spendingAmount;
   final double spendingPctOfTotal;
 
-  ChartBar(this.label, this.spendingAmount, this.spendingPctOfTotal);
+  const ChartBar(this.label, this.spendingAmount, this.spendingPctOfTotal);
 
   @override
   Widget build(BuildContext context) {
+    print('build() ChartBar');
     return LayoutBuilder(
       builder: (ctx, constraints) {
         return Column(
@@ -16,10 +17,7 @@ class ChartBar extends StatelessWidget {
             Container(
               height: constraints.maxHeight * 0.15,
               child: FittedBox(
-                child: Text(
-                  '\Rs.${spendingAmount.toStringAsFixed(0)}',
-                  style: Theme.of(context).textTheme.title,
-                ),
+                child: Text('\$${spendingAmount.toStringAsFixed(0)}'),
               ),
             ),
             SizedBox(
@@ -55,10 +53,7 @@ class ChartBar extends StatelessWidget {
             Container(
               height: constraints.maxHeight * 0.15,
               child: FittedBox(
-                child: Text(
-                  label,
-                  style: Theme.of(context).textTheme.title,
-                ),
+                child: Text(label),
               ),
             ),
           ],
